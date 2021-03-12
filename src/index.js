@@ -7,7 +7,7 @@ const renderCircle = () => svg`<circle cx="50" cy="50" r="50"></circle>`;
 class TestingSvg extends LitElement {
   render() {
     return html`
-      <div>test</div>
+      <div><slot></slot></div>
       <svg
         width="200px"
         viewBox="0 0 200 200"
@@ -27,8 +27,10 @@ window.customElements.define(
 );
 render(
   html`
-    <testing-svg></testing-svg>
-    <testing-svg-with-scopedelementmixin></testing-svg-with-scopedelementmixin>
+    <testing-svg>not using ScopedElementsMixin</testing-svg>
+    <testing-svg-with-scopedelementmixin
+      >using ScopedElementsMixin</testing-svg-with-scopedelementmixin
+    >
   `,
   document.body
 );
